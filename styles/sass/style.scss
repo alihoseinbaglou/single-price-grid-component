@@ -1,0 +1,241 @@
+@import "config";
+
+//browsers reset
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    background-color: $lightGray;
+    overflow-x: hidden;
+    font-family: $font;
+
+    .container {
+        min-height: 110vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .card {
+            max-width: 700px;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+
+            .join-section {
+                background-color: $white;
+                grid-column: 1/3;
+                min-height: 100px;
+                line-height: 1.3;
+                padding: 2rem;
+
+                p:nth-child(1) {
+                    font-size: 22px;
+                    font-weight: $fontWeight;
+                    color: $cyan;
+                }
+
+                p:nth-child(2) {
+                    padding-block: 1rem;
+                    color: $brightYellow;
+                    font-weight: $fontWeight;
+                }
+
+                p:nth-child(3) {
+                    color: $grayishBlue;
+                    font-weight: $fontWeight;
+                    font-size: 14px;
+                    line-height: 1.5;
+                }
+            }
+
+            .price-section {
+                background-color: $cyan;
+                grid-column: 1/2;
+                padding: 2rem;
+                min-height: 110px;
+
+                p:nth-child(1) {
+                    color: $white;
+                    font-weight: $fontWeight;
+                    font-size: 18px;
+                }
+
+               .price {
+                   display: flex;
+                   padding-top: 1.5rem;
+
+                   p:nth-child(1) {
+                       color: $white;
+                       font-size: 28px;
+                       font-weight: $fontWeight;
+                       padding: 0 1rem 1rem 0;
+                   }
+
+                   P:nth-child(2) {
+                       padding-top: 7px;
+                       font-size: 14px;
+                       color: rgb(224, 216, 216);
+                       letter-spacing: 1.2px;
+                   }
+               }
+
+               #access {
+                   color: $white;
+                   font-size: 14px;
+                   position: relative;
+                   top: -5px;
+               }
+
+               button {
+                   margin-top: 25px;
+                   margin-bottom: 10px;
+                   margin-left: 30px;
+                   display: inline-block;
+                   padding: 14px 16px;
+                   width: 75%;
+                   color: $white;
+                   letter-spacing: 1.3px;
+                   background-color: $brightYellow;
+                   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+                   border: none;
+                   border-radius: 5px;
+                   cursor: pointer;
+               }
+            }
+
+            .why-section {
+                background-color: $lightCyan;
+                grid-column: 2/3;
+                padding: 2rem;
+                min-height: 210px;
+
+                p:nth-child(1) {
+                    color: $white;
+                    font-size: 18px;
+                    font-weight: $fontWeight;
+                    padding: 0 1rem 1rem 0;
+                }
+
+                p:nth-child(2) {
+                    width: 60%;
+                    color: $white;
+                    line-height: 1.5;
+                    font-size: 13px;
+                    word-wrap: break-word;
+                }
+            }
+        }
+    }
+
+    // styling attribution section
+    .attribution {
+        font-size: 15px;
+        max-width: 700px;
+        margin: 4rem auto;
+        color: grey;
+        display: flex;
+        justify-content: space-between;
+
+        div:nth-child(1) {
+            padding-right: 1rem;
+        }
+
+        a {
+            color: grey;
+            padding: 0 2px;
+        }
+    }
+}
+
+// styling for screen sizes between 700px and 500px
+@media only screen and (max-width: 700px) {
+    html {
+        .container {
+            .card {
+                max-width: 90%;
+
+                .why-section {
+                    p:nth-child(2) {
+                        width: 90%;
+                        line-height: 2;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// styling for screen sizes between 500px and 400px
+@media only screen and (max-width: 500px) {
+    html {
+        .container {
+            .card {
+                .price-section {
+
+                    #access {
+                        padding-top: 1rem;
+                    }
+
+                    button {
+                        margin-left: 10px;
+                        margin-bottom: 0;
+                    }
+                }
+
+                .why-section {
+                    p:nth-child(2) {
+                        line-height: 1.3;
+                    }
+                }
+            }
+
+            .attribution {
+                max-width: 90%;
+            }
+        }
+    }
+}
+
+// styling for screen sizes less than 400px
+@media only screen and (max-width: 400px) {
+    html {
+        .container {
+            .card {
+                margin-top: 4rem;
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(minmax(345px, min-content),3);
+
+                .join-section {
+                    grid-column: 1;
+                    grid-row: 1/2;
+                }
+
+                .price-section {
+                    grid-column: 1;
+                    grid-row: 2/3;
+
+                    button {
+                        width: 90%;
+                    }
+                }
+
+                .why-section {
+                    grid-column: 1;
+                    grid-row: 3/4;
+
+                    p:nth-child(2) {
+                        line-height: 1.5;
+                    }
+                }
+            }
+        }
+    }
+}
